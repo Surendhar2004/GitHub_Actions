@@ -7,14 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: echo basic event info
-        runs: |
+        run: |
           echo "Event name: ${{ github.event_name }}"
           echo "Action: ${{ github.event.action }}"
           echo "Repository: ${{ github.repository }}"
           echo "Actor: ${{ github.actor }}"
 
       - name: Echo issue details
-        runs: |
+        run: |
           echo "Issue Number: ${{ github.event.issue.number }}"
           echo "Issue Title: ${{ github.event.issue.title }}"
           echo "Issue State: ${{ github.event.issue.state }}"
@@ -22,5 +22,5 @@ jobs:
           echo "Issue URL: ${{ github.event.issue.html_url }}"
 
       - name: Dump full GitHub context (JSON)
-        runs: |
+        run: |
           echo '${{ toJson(github) }}'
