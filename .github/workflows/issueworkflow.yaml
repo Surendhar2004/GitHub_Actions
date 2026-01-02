@@ -14,7 +14,7 @@ jobs:
           echo "Actor: ${{ github.actor }}"
 
       - name: Echo issue details
-        run: |
+        runs: |
           echo "Issue Number: ${{ github.event.issue.number }}"
           echo "Issue Title: ${{ github.event.issue.title }}"
           echo "Issue State: ${{ github.event.issue.state }}"
@@ -22,5 +22,5 @@ jobs:
           echo "Issue URL: ${{ github.event.issue.html_url }}"
 
       - name: Dump full GitHub context (JSON)
-        run: |
+        runs: |
           echo '${{ toJson(github) }}'
