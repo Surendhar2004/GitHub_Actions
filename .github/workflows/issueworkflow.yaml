@@ -1,0 +1,26 @@
+name: issueworkflow
+on: 
+  issues:
+    types: [opened,edited,deleted]
+jobs:
+  issue-details:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo basic event info
+        runs: |
+          echo "Event name: ${{ github.event_name }}"
+          echo "Action: ${{ github.event.action }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Actor: ${{ github.actor }}"
+
+      - name: Echo issue details
+        run: |
+          echo "Issue Number: ${{ github.event.issue.number }}"
+          echo "Issue Title: ${{ github.event.issue.title }}"
+          echo "Issue State: ${{ github.event.issue.state }}"
+          echo "Issue Author: ${{ github.event.issue.user.login }}"
+          echo "Issue URL: ${{ github.event.issue.html_url }}"
+
+      - name: Dump full GitHub context (JSON)
+        run: |
+          echo '${{ toJson(github) }}'
