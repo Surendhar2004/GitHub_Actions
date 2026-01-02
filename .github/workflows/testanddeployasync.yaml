@@ -39,7 +39,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build project
-        run: npm run Build
+        run: npm run build
       - name: Deploying
         run : echo "Deploying the latest changes......"
     
